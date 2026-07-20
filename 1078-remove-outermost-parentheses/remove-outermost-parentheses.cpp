@@ -6,23 +6,22 @@ public:
         int n = s.size();
         for(int i=0;i<n;i++)
         {
-            if(k==0)
+            if(s[i]=='(')
             {
-                k++;
-                continue;
+            if(k>0)
+                {
+                f=f+s[i];
+                }
+            k++;
             }
-            else if(s[i]=='(')
-            {
-                k++;
-            }
-            else if(s[i]==')')
+            else 
             {
                 k--;
-            }
-            
-            if(k>0)
-            {
+                if(k>0)
+                {
                 f=f+s[i];
+                }
+            
             }
         }
         return f;
