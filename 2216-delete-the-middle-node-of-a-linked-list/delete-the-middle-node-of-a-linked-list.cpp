@@ -17,19 +17,18 @@ public:
             return NULL;
          }
         
-           ListNode* t1 = head;
+           ListNode* t1 = head->next->next;
            ListNode* t2 = head;
-           ListNode* t3 = head;
         while(t1!=NULL && t1->next!=NULL)
         {    
                 t1 = t1->next->next;
-                t3=t2;
                 t2 = t2->next;
-
         }      
+            ListNode* middle = t2->next;
+            t2->next = t2->next->next;
+           delete middle;
 
-        t3->next = t2->next;
-        delete(t2);
+    
         return head;
     }
 };
