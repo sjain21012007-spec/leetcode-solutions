@@ -20,8 +20,7 @@ public:
             sum+=candidates[i];
             curr.push_back(candidates[i]);
             generate(i,ans,candidates,target,curr,sum,m);
-            generate(i+1,ans,candidates,target,curr,sum,m);
-
+            
         }
     }
     vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
