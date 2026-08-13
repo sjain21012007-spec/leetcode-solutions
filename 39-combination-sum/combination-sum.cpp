@@ -14,8 +14,11 @@ public:
         else{
             generate(i+1,ans,candidates,target,curr,sum);
             sum+=candidates[i];
+            if(sum<=target)
+            {
             curr.push_back(candidates[i]);
             generate(i,ans,candidates,target,curr,sum);
+            }
         }
     }
     vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
