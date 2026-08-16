@@ -10,13 +10,14 @@ public:
             }
             return ;
         }
+        if (i > 9 || curr.size() > k || i > n) {
+            return;
+        }
          generate(i+1,ans,curr,k,n);
-         if((n-i)>=0)
-         {
+         
          curr.push_back(i);
          generate(i+1,ans,curr,k,n-i);
-         }
-         return;
+         curr.pop_back();
     }
     vector<vector<int>> combinationSum3(int k, int n) {
         vector<vector<int>> ans;
