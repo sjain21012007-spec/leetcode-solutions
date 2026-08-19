@@ -56,6 +56,7 @@ public:
         if(col==n)
         {
             ans.push_back(board);
+            return ;
         }
         for(int i=0;i<n;i++)
         {
