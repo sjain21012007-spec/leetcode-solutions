@@ -1,5 +1,6 @@
 class Solution {
 public:
+   
     int minInsertions(string s) {
         int n = s.size();
         string k = s;
