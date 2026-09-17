@@ -12,10 +12,6 @@ public:
           }
           return true;
         }
-        if(j==0)
-        {
-           return false; 
-        }
         if(dp[i][j]!=-1) return dp[i][j];
         if(p[j-1]=='*')
         {
