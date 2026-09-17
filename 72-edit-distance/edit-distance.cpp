@@ -1,16 +1,5 @@
 class Solution {
 public:
-    int f(int i ,int j , string& s, string& t,vector<vector<int>>& dp)
-    {
-        if(i==0) return j;
-        if(j==0) return i;
-        if(dp[i][j]!=-1) return dp[i][j];
-        if(s[i-1]==t[j-1]) return dp[i][j] = f(i-1,j-1,s,t,dp);
-        else 
-        {
-            return dp[i][j] = 1+ min(f(i-1,j-1,s,t,dp),min(f(i-1,j,s,t,dp),f(i,j-1,s,t,dp)));
-        }
-    }
     int minDistance(string s, string t) {
         int n = s.length();
         int m = t.length();
@@ -30,8 +19,8 @@ public:
                 if(s[i-1]==t[j-1])  dp[i][j] = dp[i-1][j-1];
                 else 
                 {
-                    dp[i][j] = 1+ min(dp[i-1][j-1],min(dp[i-1][j],dp[i][j-1]));
-                 } 
+                   dp[i][j] = 1+ min(dp[i-1][j-1],min(dp[i-1][j],dp[i][j-1]));
+                } 
             }
         }
         return dp[n][m];
