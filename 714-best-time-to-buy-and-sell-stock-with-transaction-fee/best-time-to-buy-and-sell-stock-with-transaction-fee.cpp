@@ -2,14 +2,12 @@ class Solution {
 public:
     int maxProfit(vector<int>& prices, int fees) {
         int n = prices.size();
-        int i =0;
-        int buy =1;
         vector<int> curr(2,0),prev(2,0);
         for(int i=n-1;i>=0;i--)
         {
-            curr[1] = max(-prices[i] + prev[0],prev[1]);
-            curr[0]= max(prices[i] - fees + prev[1],prev[0]);
-            prev = curr;
+         curr[1] = max(-prices[i] + prev[0],prev[1]);
+         curr[0]= max(prices[i] - fees + prev[1],prev[0]);
+         prev = curr;
         }
         return prev[1];  
     }
