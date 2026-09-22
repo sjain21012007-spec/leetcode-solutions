@@ -18,31 +18,6 @@ public:
         if(cd==1) return true;
         else return false;
     }
-    int f(int i,int prev,int n,vector<string>& words,vector<vector<int>> & dp)
-    {
-        if(i==n)
-        {
-             if(prev!=0 && good(words[i-1],words[prev-1]))
-             {
-                return 2;
-             } 
-             return 1;
-        }  
-        if(dp[i][prev]!=-1) return dp[i][prev];
-        if(prev==0)
-        {
-            return dp[i][prev] =max(f(i+1,i,n,words,dp),f(i+1,0,n,words,dp));
-        }
-        else{
-            if(good(words[i-1],words[prev-1]))
-            {
-             return dp[i][prev] =max(f(i+1,prev,n,words,dp),1+ f(i+1,i,n,words,dp));
-            }
-            else{
-                return dp[i][prev] = f(i+1,prev,n,words,dp);
-            }
-        }
-    }
     int longestStrChain(vector<string>& words) {
         int n = words.size();
         sort(words.begin(), words.end(), [](const std::string& a, const std::string& b) {
@@ -51,9 +26,19 @@ public:
              }
         return a < b; 
           });
-        int prev =0;
-        int i=1;
-        vector<vector<int>> dp(n+1,vector<int> (n,-1));
-        return f(i,prev,n,words,dp);
+        vector<int>  dp(n+1,1);
+        int maxa=1;
+        for(int i =1;i<n;i++)
+        {
+            for(int prev =0;prev<i;prev++)
+            {
+               if(good(words[i],words[prev]))
+               {
+                dp[i]= max(dp[i],dp[prev]+1);
+               }
+            }
+            maxa= max(dp[i],maxa);
+        }
+        return maxa;
     }
 };
