@@ -14,6 +14,7 @@ public:
     {
         if(root==NULL) return 0;
         int s = f(root->left,p,q)+f(root->right,p,q);
+        if(root==p || root==q) s++;
         if(s==2) 
         {
             if(ans==NULL) 
@@ -22,16 +23,7 @@ public:
                 return s;
             }
             return s;
-        }
-        else if(root==p || root==q) 
-        {  
-            if(s==1) 
-            {
-                ans = root;
-                return s;
-            }
-            return 1;
-        }         
+        }   
         return s;
     }
     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
