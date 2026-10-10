@@ -12,7 +12,7 @@ public:
     TreeNode* ans = NULL;
     int f(TreeNode* root,TreeNode* p,TreeNode*q)
     {
-        if(root==NULL) return 0;
+        if(root==NULL || ans!=NULL) return 0;
         int s = f(root->left,p,q)+f(root->right,p,q);
         if(root==p || root==q) s++;
         if(s==2) 
