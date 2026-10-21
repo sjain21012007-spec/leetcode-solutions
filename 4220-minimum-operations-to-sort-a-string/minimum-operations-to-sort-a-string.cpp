@@ -3,16 +3,12 @@ public:
     int minOperations(string s) {
         int n = s.length();
         string a  = s;
-        string k =s;
         sort(a.begin(),a.end());
         if(a==s) 
         {
             return 0;
         }
-        if(a[0]==s[n-1] && a[n-1]==s[0])
-        {
-            if(n==2) return -1;
-        }
+        if(n==2) return -1;
         else if(a[0]==s[0] ||a[n-1]==s[n-1])
         {
             return 1;
