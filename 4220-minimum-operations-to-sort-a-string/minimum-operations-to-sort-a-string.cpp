@@ -17,17 +17,10 @@ public:
         {
             return 1;
         }
-        sort(s.begin(),s.end()-1);
-        sort(k.begin()+1,k.end());
-        if(a==s || a==k) 
-        {
-            return 1;
-        }
-        sort(s.begin()+1,s.end());
-        sort(k.begin(),k.end()-1);
-        if(a==s || a==k) 
-        {
-            return 2;
+         for (int i = 1; i + 1 < n; ++i) {
+            if (s[i] == a[0] || s[i] == a[n-1]) {
+                return 2;
+            }
         }
         return 3;
     }
