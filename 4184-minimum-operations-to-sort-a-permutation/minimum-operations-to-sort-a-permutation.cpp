@@ -3,14 +3,14 @@ public:
     int minOperations(vector<int>& a) {
          int n = a.size();
          if(n==1) return 0;
-         bool is_sorted = true;
+       if(n==2){ bool is_sorted = true;
          for (int i = 0; i < n; i++) {
             if (a[i] != i) {
                 is_sorted = false;
                 break;
             }
           }
-        if (is_sorted) return 0;
+        if (is_sorted) return 0;}
          for(int i=0;i<n;i++)
          {
            if(a[i]==0)
