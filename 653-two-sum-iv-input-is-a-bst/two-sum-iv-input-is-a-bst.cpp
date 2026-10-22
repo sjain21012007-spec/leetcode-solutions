@@ -12,25 +12,25 @@
 class Solution {
 public:
     bool findTarget(TreeNode* root, int k) {
-        unordered_map<int,int> m;
-        stack<TreeNode*> st;
-        TreeNode* node = root;
-        while(true)
+        vector<int> s;
+        getSortedOrder(root,s);
+        int i=0,j=s.size()-1;
+        while(i<j)
         {
-            if(node!=NULL)
-            {
-                st.push(node);
-                node = node->left;
-            }
-            else{
-                if(st.empty()) return false;
-                node = st.top();
-                if(m[k-node->val]>0) return true;
-                st.pop();
-                m[node->val]++;
-                node = node->right;
-            }
-        } 
+            int sum=s[i]+s[j];
+            if(sum==k)return true;
+
+            else if(sum>k)j--;
+            else i++;
+        }
         return false;
+    }
+    void getSortedOrder(TreeNode *root, vector<int> &sorted) 
+    {
+        if(!root)return;
+
+        getSortedOrder(root->left,sorted);
+        sorted.push_back(root->val);
+        getSortedOrder(root->right,sorted);
     }
 };
