@@ -6,8 +6,7 @@ public:
         {
             if(nums[i]!=i)
             {
-                if(ans==-1) ans = nums[i];
-                else ans = ans&nums[i];
+                ans = ans&nums[i];
             }
         }
        return max(ans,0);
