@@ -10,7 +10,6 @@ public:
                 else ans = ans&nums[i];
             }
         }
-        if(ans==-1) return 0;
-        else return ans;
+       return max(ans,0);
     }
 };
